@@ -14,9 +14,9 @@ function santa(floorString) {
 			currentFloor--;
 		}
 		
-		// if(currentFloor === -1) {
-			// return i + 1;
-		// }
+		if(currentFloor === -1) {
+			return i + 1;
+		}
 	}
 	
 	console.log("Santa never reaches floor -1");
