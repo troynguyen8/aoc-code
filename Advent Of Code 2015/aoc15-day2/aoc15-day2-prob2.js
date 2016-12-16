@@ -1049,7 +1049,7 @@ var ribbonSum = 0;
 var currentGift;
 
 for(var i = 0; i < packageDims.length; i++) {
-	currentGift = wrapAreaFinder(packageDims[i]);
+	currentGift = ribbonFinder(packageDims[i]);
 	ribbonSum += currentGift.minPerim + currentGift.volume;
 }
 
