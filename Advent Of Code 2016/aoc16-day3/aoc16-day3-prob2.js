@@ -1760,27 +1760,26 @@ function isValidTriangle(length1, length2, length3) {
 var validTriangles = 0;
 
 for(var i = 0; i < sideLengths.length; i += 3) {
-	var col1FirstLength = parseInt(sideLengths[i].substring(findLengthStartIndex(0, i) , 4));
-	var col1SecondLength = parseInt(sideLengths[i + 1].substring(findLengthStartIndex(0, i + 1) , 4));
-	var col1ThirdLength = parseInt(sideLengths[i + 2].substring(findLengthStartIndex(0, i + 2) , 4));
+	var regex = /\d+/g;
+	var row1Lengths = sideLengths[i].match(regex);
+	var row2Lengths = sideLengths[i + 1].match(regex);
+	var row3Lengths = sideLengths[i + 2].match(regex);
 	
-	var col2FirstLength = parseInt(sideLengths[i].substring(findLengthStartIndex(5, i) , 8));
-	var col2SecondLength = parseInt(sideLengths[i + 1].substring(findLengthStartIndex(5, i + 1) , 8));
-	var col2ThirdLength = parseInt(sideLengths[i + 2].substring(findLengthStartIndex(5, i + 2) , 8));
+	for(var j = 0; j < row1Lengths.length; j++) {
+		row1Lengths[j] = parseInt(row1Lengths[j]);
+		row2Lengths[j] = parseInt(row2Lengths[j]);
+		row3Lengths[j] = parseInt(row3Lengths[j]);
+	}
 	
-	var col3FirstLength = parseInt(sideLengths[i].substring(findLengthStartIndex(10, i) , 13));
-	var col3SecondLength = parseInt(sideLengths[i + 1].substring(findLengthStartIndex(10, i + 1) , 13));
-	var col3ThirdLength = parseInt(sideLengths[i + 2].substring(findLengthStartIndex(10, i + 2) , 13));
-	
-	if(isValidTriangle(col1FirstLength, col1SecondLength, col1ThirdLength)) {
+	if(isValidTriangle(row1Lengths[0], row2Lengths[0], row3Lengths[0])) {
 		validTriangles++;
 	}
 	
-	if(isValidTriangle(col2FirstLength, col2SecondLength, col2ThirdLength)) {
+	if(isValidTriangle(row1Lengths[1], row2Lengths[1], row3Lengths[1])) {
 		validTriangles++;
 	}
 	
-	if(isValidTriangle(col3FirstLength, col3SecondLength, col3ThirdLength)) {
+	if(isValidTriangle(row1Lengths[2], row2Lengths[2], row3Lengths[2])) {
 		validTriangles++;
 	}
 }

@@ -5,26 +5,13 @@
  */
 
 function wrapAreaFinder(dimensionString) {
-	var firstXLocation;
-	var secXLocation;
+	var regex = /\d+/g;
 	
-	for(var i = 0; i < dimensionString.length; i++) {
-		if(dimensionString.charAt(i) === 'x') {
-			firstXLocation = i;
-			break;
-		}
-	}
+	var dimensions = dimensionString.match(regex);
 	
-	for(var j = firstXLocation + 1; j < dimensionString.length; j++) {
-		if(dimensionString.charAt(j) === 'x') {
-			secXLocation = j;
-			break;
-	}
-		}
-	
-	var l = parseInt(dimensionString.substring(0, firstXLocation));
-	var w = parseInt(dimensionString.substring(firstXLocation + 1, secXLocation));
-	var h = parseInt(dimensionString.substring(secXLocation + 1, dimensionString.length + 1));
+	var l = parseInt(dimensions[0]);
+	var w = parseInt(dimensions[1]);
+	var h = parseInt(dimensions[2]);
 	
 	var sideAreas = [l * w, w * h, h * l];
 	

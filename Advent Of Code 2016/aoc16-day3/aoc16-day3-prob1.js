@@ -1742,22 +1742,22 @@ var sideLengths = [
   '356  902  922'
 ];
 
-function findLengthStartIndex(loopStart) {
-	for(var j = loopStart; j < sideLengths[i].length; j++) {
-		if(sideLengths[i].charAt(j) != ' ') {
-			return j;
-		}
+function isValidTriangle(length1, length2, length3) {
+	if(length1 + length2 > length3 && length2 + length3 > length1 && length1 + length3 > length2) {
+		return true;
 	}
 }
 
 var validTriangles = 0;
 
 for(var i = 0; i < sideLengths.length; i++) {
-	var firstLength = parseInt(sideLengths[i].substring(findLengthStartIndex(0) , 4));
-	var secondLength = parseInt(sideLengths[i].substring(findLengthStartIndex(5) , 8));
-	var thirdLength = parseInt(sideLengths[i].substring(findLengthStartIndex(10) , 13));
+	var rowLengths = sideLengths[i].match(/\d+/g);
 	
-	if(firstLength + secondLength > thirdLength && secondLength + thirdLength > firstLength && firstLength + thirdLength > secondLength) {
+	rowLengths[0] = parseInt(rowLengths[0]);
+	rowLengths[1] = parseInt(rowLengths[1]);
+	rowLengths[2] = parseInt(rowLengths[2]);
+	
+	if(isValidTriangle(rowLengths[0], rowLengths[1], rowLengths[2])) {
 		validTriangles++;
 	}
 }
