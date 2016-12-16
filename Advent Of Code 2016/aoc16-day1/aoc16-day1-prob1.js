@@ -16,41 +16,44 @@ var currentDir;
 var x = 0;
 var y = 0;
 
+var regex = /\d+/g;
+var magnitude = parseInt(directions[0].match(regex)[0]);
 if(directions[0].charAt(0) === 'L') {
 	currentDir = 'W';
-	x -= parseInt(directions[0].substring(1, directions[0].length + 1));
+	x -= magnitude;
 } else {
 	currentDir = 'E';
-	x += parseInt(directions[0].substring(1, directions[0].length + 1));
+	x += magnitude;
 }
 
 for(var i = 1; i < directions.length; i++) {
+	magnitude = parseInt(directions[i].match(regex)[0]);
 	if(directions[i].charAt(0) === 'L') {
 		if(currentDir === 'W') {
-			y -= parseInt(directions[i].substring(1, directions[i].length + 1));
+			y -= magnitude;
 			currentDir = 'S';
 		} else if(currentDir === 'E') {
-			y += parseInt(directions[i].substring(1, directions[i].length + 1));
+			y += magnitude;
 			currentDir = 'N';
 		} else if(currentDir === 'S') {
-			x += parseInt(directions[i].substring(1, directions[i].length + 1));
+			x += magnitude;
 			currentDir = 'E';
 		} else {
-			x -= parseInt(directions[i].substring(1, directions[i].length + 1));
+			x -= magnitude;
 			currentDir = 'W';
 		}
 	} else {
 		if(currentDir === 'W') {
-			y += parseInt(directions[i].substring(1, directions[i].length + 1));
+			y += magnitude;
 			currentDir = 'N';
 		} else if(currentDir === 'E') {
-			y -= parseInt(directions[i].substring(1, directions[i].length + 1));
+			y -= magnitude;
 			currentDir = 'S';
 		} else if(currentDir === 'S') {
-			x -= parseInt(directions[i].substring(1, directions[i].length + 1));
+			x -= magnitude;
 			currentDir = 'W';
 		} else {
-			x += parseInt(directions[i].substring(1, directions[i].length + 1));
+			x += magnitude;
 			currentDir = 'E';
 		}
 	}

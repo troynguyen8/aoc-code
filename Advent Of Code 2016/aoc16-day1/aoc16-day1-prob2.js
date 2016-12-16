@@ -20,16 +20,18 @@ var m;
 var xArr = [];
 var yArr = [];
 
+var regex = /\d+/g;
+var magnitude = parseInt(directions[0].match(regex)[0]);
 if(directions[0].charAt(0) === 'L') {
 	currentDir = 'W';
-	for(m = 1; m <= parseInt(directions[0].substring(1, directions[0].length + 1)); m++) {
+	for(var m = 1; m <= magnitude; m++) {
 		x--;
 		xArr.push(x);
 		yArr.push(y);
 	}
 } else {
 	currentDir = 'E';
-	for(m = 1; m <= parseInt(directions[0].substring(1, directions[0].length + 1)); m++) {
+	for(var m = 1; m <= magnitude; m++) {
 		x++;
 		xArr.push(x);
 		yArr.push(y);
@@ -37,30 +39,31 @@ if(directions[0].charAt(0) === 'L') {
 }
 
 for(var i = 1; i < directions.length; i++) {
+	var magnitude = parseInt(directions[i].match(regex)[0]);
 	if(directions[i].charAt(0) === 'L') {
 		if(currentDir === 'W') {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				y--;
 				xArr.push(x);
 				yArr.push(y);
 			}
 			currentDir = 'S';
 		} else if(currentDir === 'E') {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				y++;
 				xArr.push(x);
 				yArr.push(y);
 			}
 			currentDir = 'N';
 		} else if(currentDir === 'S') {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				x++;
 				xArr.push(x);
 				yArr.push(y);
 			}
 			currentDir = 'E';
 		} else {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				x--;
 				xArr.push(x);
 				yArr.push(y);
@@ -69,28 +72,28 @@ for(var i = 1; i < directions.length; i++) {
 		}
 	} else {
 		if(currentDir === 'W') {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				y++;
 				xArr.push(x);
 				yArr.push(y);
 			}
 			currentDir = 'N';
 		} else if(currentDir === 'E') {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				y--;
 				xArr.push(x);
 				yArr.push(y);
 			}
 			currentDir = 'S';
 		} else if(currentDir === 'S') {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				x--;
 				xArr.push(x);
 				yArr.push(y);
 			}
 			currentDir = 'W';
 		} else {
-			for(m = 1; m <= parseInt(directions[i].substring(1, directions[i].length + 1)); m++) {
+			for(m = 1; m <= magnitude; m++) {
 				x++;
 				xArr.push(x);
 				yArr.push(y);
