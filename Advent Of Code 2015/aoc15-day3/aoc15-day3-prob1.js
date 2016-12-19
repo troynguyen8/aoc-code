@@ -28,13 +28,13 @@ houseArray.push(house);
 
 for(var i = 0; i < directions.length; i++) {
 	if(directions.charAt(i) === 'v') {
-		currentYCoord -= 1;
+		currentYCoord--;
 	} else if(directions.charAt(i) === '^') {
-		currentYCoord += 1;
+		currentYCoord++;
 	} else if(directions.charAt(i) === '>') {
-		currentXCoord += 1;
+		currentXCoord++;
 	} else {
-		currentXCoord -= 1;
+		currentXCoord--;
 	}
 	
 	house = {

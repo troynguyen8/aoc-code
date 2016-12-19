@@ -31,13 +31,13 @@ houseArray.push(house);
 for(var i = 0; i < directions.length; i++) {
 	if(i % 2 === 0) {
 		if(directions.charAt(i) === 'v') {
-			currentSantaYCoord -= 1;
+			currentSantaYCoord--;
 		} else if(directions.charAt(i) === '^') {
-			currentSantaYCoord += 1;
+			currentSantaYCoord++;
 		} else if(directions.charAt(i) === '>') {
-			currentSantaXCoord += 1;
+			currentSantaXCoord++;
 		} else {
-			currentSantaXCoord -= 1;
+			currentSantaXCoord--;
 		}
 		
 		house = {
@@ -46,13 +46,13 @@ for(var i = 0; i < directions.length; i++) {
 		};
 	} else {
 		if(directions.charAt(i) === 'v') {
-			currentRoboYCoord -= 1;
+			currentRoboYCoord--;
 		} else if(directions.charAt(i) === '^') {
-			currentRoboYCoord += 1;
+			currentRoboYCoord++;
 		} else if(directions.charAt(i) === '>') {
-			currentRoboXCoord += 1;
+			currentRoboXCoord++;
 		} else {
-			currentRoboXCoord -= 1;
+			currentRoboXCoord--;
 		}
 		
 		house = {
