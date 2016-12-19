@@ -28,12 +28,6 @@ function isValidCoord(xCoord, yCoord) {
 	
 	return false;
 }
-// var directions = [
-// 'ULL',
-// 'RRDDD',
-// 'LURDL',
-// 'UUUUD',
-// ];
 
 var currentXCoord = -2;
 var currentYCoord = 0;
