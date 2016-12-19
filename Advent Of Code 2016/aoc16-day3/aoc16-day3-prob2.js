@@ -1743,14 +1743,6 @@ var sideLengths = [
   '356  902  922'
 ];
 
-function findLengthStartIndex(loopStart, i) {
-	for(var j = loopStart; j < sideLengths[i].length; j++) {
-		if(sideLengths[i].charAt(j) != ' ') {
-			return j;
-		}
-	}
-}
-
 function isValidTriangle(length1, length2, length3) {
 	if(length1 + length2 > length3 && length2 + length3 > length1 && length1 + length3 > length2) {
 		return true;
