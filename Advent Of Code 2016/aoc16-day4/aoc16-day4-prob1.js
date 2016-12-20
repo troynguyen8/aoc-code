@@ -1013,7 +1013,7 @@ function isRealRoom(roomCode) {
 		expectedCheckSum = expectedCheckSum + letterCount[i].letter;
 	}
 	
-	return (expectedCheckSum === actualCheckSum)
+	return (expectedCheckSum === actualCheckSum);
 }
 
 var secIDSum = 0;

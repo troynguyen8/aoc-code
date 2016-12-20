@@ -1,7 +1,7 @@
 /**
  * @author Troy Nguyen
  * 12/18/16
- * Advent of Code 2015, day 4 problem 1
+ * Advent of Code 2015, day 4 problem 2
  */
  
 ///////////////////////////////////////////////
@@ -203,7 +203,7 @@ OuterLoop:
 for(var i = 1; ; i++) {
 	var currentMD5Hash = md5(inputString + i);
 	
-	for(let j = 0; j < 5; j++) {
+	for(let j = 0; j < 6; j++) {
 		if(currentMD5Hash.charAt(j) !== '0') {
 			continue OuterLoop;
 		}

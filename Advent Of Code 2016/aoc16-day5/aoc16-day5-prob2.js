@@ -1,7 +1,7 @@
 /**
  * @author Troy Nguyen
- * 12/18/16
- * Advent of Code 2015, day 4 problem 1
+ * 12/19/16
+ * Advent of Code 2016, day 5 problem 2
  */
  
 ///////////////////////////////////////////////
@@ -197,7 +197,8 @@ return (msw << 16) | (lsw & 0xFFFF);
 // THE FOLLOWING CODE WAS WRITTEN BY TROY NGUYEN //
 ///////////////////////////////////////////////////
 
-var inputString = 'bgvyzdsv';
+var inputString = 'reyedfim';
+var doorPassword = [-1, -1, -1, -1, -1, -1, -1, -1];
 
 OuterLoop:
 for(var i = 1; ; i++) {
@@ -209,6 +210,20 @@ for(var i = 1; ; i++) {
 		}
 	}
 	
-	console.log(i);
+	let codeIndex = parseInt(currentMD5Hash.charAt(5));
+	if(!isNaN(codeIndex) && codeIndex >= 0 && codeIndex <= 7) {
+		if(doorPassword[codeIndex] === -1) {
+			doorPassword[codeIndex] = currentMD5Hash.charAt(6);
+		}
+	}
+	
+	for(let j = 0; j < doorPassword.length; j++) {
+		if(doorPassword[j] === -1) {
+			continue OuterLoop;
+		}
+	}
+	
 	break;
-} 
+}
+
+console.log(doorPassword);
