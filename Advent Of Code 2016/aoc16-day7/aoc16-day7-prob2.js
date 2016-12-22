@@ -1,7 +1,7 @@
 /**
  * @author Troy Nguyen
  * 12/20/16
- * Advent of Code 2015, Day 7 problem 2
+ * Advent of Code 2016, Day 7 problem 2
  */
  
 var input = [
