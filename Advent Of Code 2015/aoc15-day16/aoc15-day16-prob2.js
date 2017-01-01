@@ -554,6 +554,3 @@ for(let i = 0; i < sues.length; i++) {
 // there appears to be two valid sues in my input...
 console.log(sues);
 console.log(sues[1].id);
-
-
-

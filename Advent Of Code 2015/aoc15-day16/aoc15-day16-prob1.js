@@ -542,6 +542,3 @@ for(let i = 0; i < sues.length; i++) {
 }
 
 console.log(sues[0].id);
-
-
-
