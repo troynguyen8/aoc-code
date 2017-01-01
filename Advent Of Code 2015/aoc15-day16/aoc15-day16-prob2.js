@@ -537,13 +537,9 @@ function isFakeSue(parameter, index) {
 var sues = [];
 
 input.forEach((sue, index) => {
-	input[index] = sue.substring(sue.search(/ [a-z]/), sue.length + 1).replace(/(\w+)(: \d+)/g, '\"$1\"$2');
-	sues.push(JSON.parse('{' + input[index] + '}'));
+	sues.push(JSON.parse('{' + sue.substring(sue.search(/ [a-z]/), sue.length + 1).replace(/(\w+)(: \d+)/g, '\"$1\"$2') + '}'));
+	sues[index].id = index + 1;
 });
-
-for(let i = 0; i < sues.length; i++) {
-	sues[i]['id'] = i + 1;
-}
 
 for(let i = 0; i < sues.length; i++) {
 	for(param in knownBelongings) {
